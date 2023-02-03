@@ -1,0 +1,638 @@
+* { 
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: url('images/money.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    margin: 60px 20px 30px 20px; 
+    max-width: 600px;
+    height: 950px;
+    background-color: rgba(12, 20, 12, 0.6);
+    padding: 30px 50px 20px 50px;
+    border: 3px solid rgb(51, 68, 52);
+    box-shadow:  0px 0px 38px black,  0px 0px 28px black;
+    border-radius: 10px;
+}
+
+
+.currentAccountContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.savingsContainer {
+    display: none;
+    flex-direction: column;
+}
+
+
+/****************************** TOP *****************************/
+
+.date {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-bottom: 15px;
+    color: rgb(148, 148, 148);
+
+}
+
+.menu {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.euro {
+    font-size: 0;
+    position: absolute;
+}
+
+.payments{
+     display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 50%;
+    padding: 10px 0 10px 0;
+    background-color: rgb(94, 94, 94);
+    color:rgb(255, 255, 255);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    font-size: 1rem;
+}
+
+.savings{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 50%;
+    padding: 10px 0 10px 0;
+    background-color:  rgb(66, 0, 0);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    font-size: 1rem;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    padding-bottom: 5px;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+.fields {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.plusmin {
+    width: 15%;
+    height: 44px;
+}
+
+.depositWithdraw {
+    width: 15%;
+    height: 44px;
+}
+
+.plusmin select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4rem;
+    width: 100%;
+    height: 100%;
+}
+
+.depositWithdraw select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4rem;
+    width: 100%;
+    height: 100%;
+}
+
+.select_type {
+     outline: none;
+     border: 1px solid #929292;
+}
+
+.select_type_savings {
+     outline: none;
+     border: 1px solid #929292;
+}
+
+.red-focus{
+  border: 1px solid #ff5049 !important;
+}
+
+::placeholder {
+    color: rgb(153, 153, 153);
+    padding-left: 5px;
+}
+
+.description {
+    width:55%;
+    display: flex;
+    border: 1px solid #929292
+}
+
+.add_description, .add_savings_description {
+    width: 100%;
+    height: 42px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    outline: none;
+    border:0;
+}
+
+.value {
+    width: 15%;
+    border-left: 1px solid gray;
+    height: 44px;
+    border: 1px solid #929292
+}
+
+.add_value, .add_savings_value  {
+    width: 100%;
+    height: 42px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    outline: none;
+    border: 0;
+}
+
+.btn1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:15%;
+    background-color: rgb(15, 77, 23);
+    border-style: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.savingsSubmitBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:15%;
+    background-color: rgb(15, 77, 23);
+    border-style: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.btn2 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height: 50px;
+    background-color: rgb(27, 94, 36);
+    border-style: none;
+    color: rgb(255, 255, 255);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.budget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 100%;
+    height: 51px;
+    margin-bottom: 20px;
+    background: rgb(47, 122, 44); 
+    padding: 15px 23px 15px 20px;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: .8s ease-in-out;
+}
+
+.budgetTitle, .budgetTotal, .savingsTotal, .savingsTitle {
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.savingsBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 100%;
+    height: 51px;
+    margin-bottom: 20px;
+    background: rgb(47, 122, 44); 
+    padding: 15px 23px 15px 20px;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: .8s ease-in-out;
+}
+
+.smile {
+    padding-top: 5px;
+}
+
+.red {
+     background: rgb(134, 0, 0);
+}
+
+
+/***************************** BODY *****************************/
+
+.flatBroke {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.4rem;
+}
+
+.nosavings {
+    margin-top: 20px;
+    padding-left: 18px;
+}
+
+.listItemsWrapper {
+    width: 100%;
+    height: 570px;
+    margin: 72px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.boxes {
+    width: 100%;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+}
+.container {
+    width: 100%;
+    height: 585px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+}
+
+.container2 {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pluscontainer, 
+.minuscontainer{
+    width: 100%;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.plusBox, .minusBox  {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+}
+
+.plusBox {
+    margin-right: 10px;
+}
+
+.minusBox {
+    margin-left: 10px;
+} 
+
+.plusSavingsBox {
+    width: 100%;
+    height:580px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+/* .scrollSigns {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+} */
+
+.scrollSignLeft {
+    width: 50%;
+     height: 50px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.scrollSignRight {
+    width: 50%;
+     height: 50px;
+    display: none;
+    align-items: center;
+    justify-content:center;
+    cursor: pointer;
+}
+
+.scrollSign {
+    width: 100%;
+     height: 50px;
+    display: none;
+    align-items: center;
+    justify-content:center;
+    cursor: pointer;
+}
+
+
+.depTotal {
+ color: rgb(0, 173, 0);
+}
+
+.withTotal {
+    color: rgb(223, 0, 0);
+}
+
+.plus, .minus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+     padding: 10px ;
+     border: 2px solid rgb(126, 126, 126);
+     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     font-size: 1rem;
+}
+
+.pluscontainer::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
+}
+
+.minuscontainer::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
+}
+
+.plusSavingsBox::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
+}
+
+.plusItem, .minItem {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pluslist, .minlist {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.pluslist > div {
+    height: 53px;
+}
+
+.minlist > div {
+    height: 53px;
+}
+
+.descontainer {
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+     width: 60%;
+}
+
+.valcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+   width: 40%;
+}
+
+.timestamp {
+   display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: .7rem;
+    color: gray;
+    border-bottom: 2px dotted rgb(173, 173, 173);
+    padding-bottom: 5px;
+}
+
+.remove {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 38%;
+    height: 20px;
+    color: rgb(128, 128, 128);
+    font-size: .8rem;
+    cursor:pointer;
+    transition: .2s ease-in-out;
+}
+
+.remove:hover{
+    color: rgb(192, 0, 0);
+    font-size: .9rem;
+    letter-spacing: 1px;
+}
+
+.created {
+    width: 62%;
+    color: rgb(128, 128, 128);
+}
+
+.scrollPng {
+    width: 100%;
+     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 500px;
+}
+
+.percentage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: green;
+    border-radius: 20px;
+}
+
+#progressbar {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#progress {
+    width: 0%;
+    height: 10px;
+    background-color:green;
+    transition: .5s ease-in-out;
+    border-radius: 10px;
+}
+
+.hundred{
+    margin: 15px 0 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+
+/************************** MEDIA QUERIES ****************************/
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        padding: 20px 20px 30px 20px; 
+    }
+}
+
+
+@media only screen and (max-width: 535px) {
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: scroll;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .container::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+.flatBroke {
+    margin-top: 80px;
+}
+
+.pluscontainer, .minuscontainer {
+      height: auto;
+  }
+
+.plusBox {
+    margin-right: 0;
+    margin-bottom: 10px;
+    height: auto;
+}
+
+.minusBox {
+    margin-left: 0;
+    margin-top: 10px;
+    height: auto;
+   
+}
+.add_description {
+    font-size: .8rem;
+}
+
+.add_value {
+    font-size: .8rem;
+}
+
+.description {
+    width: 65%
+}
+
+.plusmin {
+    width: 15%;
+}
+
+.value {
+    width: 20%;
+}
+
+.btn1 {
+    display: none;
+}
+
+.btn2 {
+    display: flex;
+}
+.scrollSigns{
+    display: none;
+    }
+}
+
+
+@media only screen and (max-width: 430px) {
+  .account {
+      font-size: 1.2rem;
+  }
+  .wrapper {
+     padding: 20px 10px 30px 10px; 
+        width: 100%;
+        margin: 0;
+        border: 0;
+    }
+    .payments, .savings {
+        font-size: .9rem;
+    }
+}
