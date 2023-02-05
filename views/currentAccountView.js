@@ -33,7 +33,7 @@ export const goTo = (e) => {
 export const displayCurrentAccountItems = (obj, type) => {
     let html, element;
 
-    if (type === "plus" ) {
+    if (type === "plus" || type === "withdraw") {
         element = document.querySelector('.pluscontainer')
         html = `<div class="plusItem" id=plus-${obj.id}>
                 <div class="pluslist">
@@ -43,7 +43,7 @@ export const displayCurrentAccountItems = (obj, type) => {
                 <div class="timestamp"><div class="created">${obj.createdAt}</div><div class="remove">remove item</div></div>
                 </div>
                 `
-    } else if (type === "minus") {
+    } else if (type === "minus" || type === "deposit") {
         element = document.querySelector('.minuscontainer')
         html = `<div class="minItem" id=minus-${obj.id}>
                 <div class="minlist" >
@@ -59,7 +59,6 @@ export const displayCurrentAccountItems = (obj, type) => {
 
 
 export const displayBudget = (budget) => {
-    console.log(budget)
     let sign;
     if (budget >= 0) {
         sign = '+'

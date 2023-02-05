@@ -25,3 +25,4 @@ export const calculateSavings = (deposit, withdrawal) => {
         let savings = sum1 - sum2
         return savings
     }
+

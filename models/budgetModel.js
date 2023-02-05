@@ -13,7 +13,6 @@ export class CurrentAccount {
 }
 
 export const calculateBudget = (plus, minus) => {
-    console.log(plus, minus)
     let sum1 = 0
     let sum2 = 0
 

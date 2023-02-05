@@ -29,6 +29,7 @@ let state =
 {
     budget: 0,          // Total available budget
     savings: 0,
+    allCurrentAccountItems: [],
 
     currentAccount: {
         plus: [],       // all deposit values
@@ -75,7 +76,7 @@ const currentlistItemsController = () => {
     const newObj = new CurrentAccount(obj.type, obj.description, obj.value)
     state.currentAccount.currentAccountItems[obj.type].push(newObj)
 
-    state.currentAccount[obj.type].push(obj.value)
+    state.currentAccount[newObj.type].push(newObj.value)
 
     state.allCurrentAccountItems = [...state.currentAccount.currentAccountItems.plus,
     ...state.currentAccount.currentAccountItems.minus]
@@ -105,6 +106,8 @@ const budgetController = () => {
     displayTotalDepositsAndWithdrawals(totalsDepAndWith)
     state.currentAccount.plusTotal = totalsDepAndWith.totalDeposits
     state.currentAccount.minusTotal = totalsDepAndWith.totalWithDrawals
+
+    percentage()
 }
 
 
@@ -131,12 +134,29 @@ const savingsListItemsController = () => {
         return
     }
     const newObj = new SavingsAccount(obj.type, obj.description, obj.value)
-    state.savingsAccount.savingsAccountItems[obj.type].push(newObj)
+    state.savingsAccount.savingsAccountItems[newObj.type].push(newObj)
 
-    state.savingsAccount[obj.type].push(obj.value)
+    state.savingsAccount[newObj.type].push(newObj.value)
 
     state.allSavingsAccountItems = [...state.savingsAccount.savingsAccountItems.deposit,
     ...state.savingsAccount.savingsAccountItems.withdraw]
+
+    if (newObj.type === 'deposit') {
+        state.currentAccount.currentAccountItems.minus.push(newObj)
+        state.currentAccount.minus.push(newObj.value)
+
+    } else if (newObj.type === 'withdraw') {
+        state.currentAccount.currentAccountItems.plus.push(newObj)
+        state.currentAccount.plus.push(newObj.value)
+    }
+
+    state.allCurrentAccountItems.push(newObj)
+
+    // state.allCurrentAccountItems.forEach(item => {
+    //     displayCurrentAccountItems(item, item.type)
+    // })
+
+    budgetController()
 
     clearSavingsAccountLists()
 
@@ -144,6 +164,9 @@ const savingsListItemsController = () => {
         console.log(item)
         displaySavingsAccountItems(item, item.type)
     })
+
+    //Add or subtract value from budget
+    console.log(state)
 }
 
 
@@ -159,7 +182,7 @@ const savingsController = () => {
 
 // ------------------------- EventListeners and init function ------------------------ //
 
-//EventListener submit button
+//EventListener submit button current account
 const btn = document.querySelector('.btn1')
 btn.addEventListener('click', () => {
     currentlistItemsController()
@@ -169,8 +192,10 @@ btn.addEventListener('click', () => {
     localStorage.setItem("STATE", JSON.stringify(state))
 })
 
+//EventListener submit button current account
 const btn2 = document.querySelector('.savingsSubmitBtn')
 btn2.addEventListener('click', () => {
+    console.log(state)
     savingsListItemsController()
     clearSavingsInputFields()
     savingsController()
@@ -192,6 +217,7 @@ select.addEventListener('change', changeBorderColor)
 
 // Init loads all the available data if any in localstorage
 const init = () => {
+
     let data = JSON.parse(localStorage.getItem("STATE"))
     if (data) {
         state = Object.assign(state, data)
@@ -203,13 +229,13 @@ const init = () => {
             })
 
         })
+        // displayBudget(state.budget)
         budgetController()
         savingsController()
-        percentage(state.percentage, state.budget)
         displayDownArrow(state.currentAccount.plus, state.currentAccount.minus)
         showFlatbrokeImage(state.savings)
     }
-    displayBudget(state.budget)
+    displayBudget(state.budget)   // If budget = 0 show smiley and + sign
     date()
 }
 
