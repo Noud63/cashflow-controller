@@ -40,6 +40,7 @@ export const displayCurrentAccountItems = (obj, type) => {
                 <div class="descontainer">${obj.description}</div>
                 <div class="valcontainer">+ &euro; ${obj.value.toFixed(2)}</div>
                 </div>
+                <div class="toSavings">${type === "withdraw" ? "from savings account" : ""}</div>
                 <div class="timestamp"><div class="created">${obj.createdAt}</div><div class="remove">remove item</div></div>
                 </div>
                 `
@@ -50,6 +51,7 @@ export const displayCurrentAccountItems = (obj, type) => {
                 <div class="descontainer">${obj.description}</div>
                 <div class="valcontainer">- &euro; ${obj.value.toFixed(2)}</div>
                 </div>
+                <div class="fromSavings">${type === "deposit" ? "to savings account" : ""}</div>
                 <div class="timestamp"><div class="created">${obj.createdAt}</div><div class="remove">remove item</div></div>
                 </div>
                 `

@@ -81,13 +81,18 @@ const currentlistItemsController = () => {
     state.allCurrentAccountItems = [...state.currentAccount.currentAccountItems.plus,
     ...state.currentAccount.currentAccountItems.minus]
 
-    clearCurrentAccountLists()
-
-    state.allCurrentAccountItems.forEach(item => {
-        displayCurrentAccountItems(item, item.type)
-    })
+    displayAllItems(state.allCurrentAccountItems)
 
     displayDownArrow(state.currentAccount.plus, state.currentAccount.minus)
+}
+
+
+//Display all items from current account and savings account
+const displayAllItems = (allItems) => {
+    clearCurrentAccountLists()
+    allItems.forEach(item => {
+        displayCurrentAccountItems(item, item.type)
+    })
 }
 
 
@@ -152,21 +157,15 @@ const savingsListItemsController = () => {
 
     state.allCurrentAccountItems.push(newObj)
 
-    // state.allCurrentAccountItems.forEach(item => {
-    //     displayCurrentAccountItems(item, item.type)
-    // })
+    displayAllItems(state.allCurrentAccountItems)
 
     budgetController()
 
     clearSavingsAccountLists()
 
     state.allSavingsAccountItems.forEach(item => {
-        console.log(item)
         displaySavingsAccountItems(item, item.type)
     })
-
-    //Add or subtract value from budget
-    console.log(state)
 }
 
 

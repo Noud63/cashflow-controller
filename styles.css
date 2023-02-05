@@ -440,11 +440,23 @@ body {
 }
 
 .pluslist > div {
-    height: 53px;
+    height: 36px;
 }
 
 .minlist > div {
-    height: 53px;
+    height: 36px;
+}
+
+.toSavings {
+    height: 18px;
+    font-size: .7rem;
+    color: rgb(53, 167, 0);
+}
+
+.fromSavings {
+    height: 18px;
+    font-size: .7rem;
+    color: rgb(177, 0, 0);
 }
 
 .descontainer {
@@ -458,7 +470,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-   width: 40%;
+    width: 40%;
 }
 
 .timestamp {
