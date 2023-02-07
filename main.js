@@ -5,21 +5,21 @@ import { getSavingsInputValues } from './getInputValues/savingsInputValues.js'
 import { date } from './utils/timestamp.js'
 import {
     displayCurrentAccountItems,
-    clearCurrentAccountLists,
     displayBudget,
     displayTotalDepositsAndWithdrawals,
     clearInputFields,
     progress,
     displayDownArrow,
     changeBorderColor,
-    goTo
+    goTo,
+    displayAllItems
 } from './views/currentAccountView.js'
 import {
     displaySavingsAccountItems,
     clearSavingsAccountLists,
     clearSavingsInputFields
 } from './views/savingsView'
-import { showFlatbrokeImage, displaySavings } from './views/savingsView.js'
+import { showFlatbrokeImage, displaySavings, displayDownArrowSavings } from './views/savingsView.js'
 import { CurrentAccount, calculateBudget, calculateTotalDepositsandWithdrawals } from './models/budgetModel.js'
 
 
@@ -65,10 +65,11 @@ let state =
 
 // ------------------------------- Current Account ------------------------------- //
 
-//Current account list items of deposits and withdrawals
+//Current account list items deposits and withdrawals
 const currentlistItemsController = () => {
 
     const obj = getInputValues()
+    
     if (obj.type === "" || obj.description === "" || obj.value <= 0 || isNaN(obj.value)) {
         alert('Please fill in all required fields!')
         return
@@ -84,15 +85,6 @@ const currentlistItemsController = () => {
     displayAllItems(state.allCurrentAccountItems)
 
     displayDownArrow(state.currentAccount.plus, state.currentAccount.minus)
-}
-
-
-//Display all items from current account and savings account
-const displayAllItems = (allItems) => {
-    clearCurrentAccountLists()
-    allItems.forEach(item => {
-        displayCurrentAccountItems(item, item.type)
-    })
 }
 
 
@@ -166,6 +158,8 @@ const savingsListItemsController = () => {
     state.allSavingsAccountItems.forEach(item => {
         displaySavingsAccountItems(item, item.type)
     })
+    console.log(state.allSavingsAccountItems.length)
+    displayDownArrowSavings(state.allSavingsAccountItems.length)
 }
 
 
@@ -228,13 +222,12 @@ const init = () => {
             })
 
         })
-        // displayBudget(state.budget)
         budgetController()
         savingsController()
         displayDownArrow(state.currentAccount.plus, state.currentAccount.minus)
         showFlatbrokeImage(state.savings)
     }
-    displayBudget(state.budget)   // If budget = 0 show smiley and + sign
+    displayBudget(state.budget)   // If budget = 0 show smiley and '+' sign
     date()
 }
 

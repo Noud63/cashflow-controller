@@ -27,7 +27,7 @@ export const displaySavingsAccountItems = (obj, type) => {
            sign = '-'
        }
 
-        html = `<div class="plusItem" id=${obj.id}>
+        html = `<div class="savingsItem" id=${obj.id}>
                 <div class="pluslist">
                 <div class="descontainer">${obj.description}</div>
                 <div class="valcontainer">${sign} &euro; ${obj.value.toFixed(2)}</div>
@@ -42,4 +42,11 @@ export const displaySavingsAccountItems = (obj, type) => {
 export const displaySavings = (savings) => {
     let element = document.querySelector('.savingsTotal')
     element.innerHTML = `<div class="saldo">+ &euro; ${savings.toFixed(2)}</div>`
+}
+
+//Down arrow appears at bottom of list items if list length exceeds 6 
+const arrowDown = document.querySelector('.scrollSign')
+export const displayDownArrowSavings = (allSavings) => {
+    console.log(allSavings)
+    allSavings >= 8 ? arrowDown.style.display = "flex" : arrowDown.style.display = "none"
 }

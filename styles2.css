@@ -1,6 +1,7 @@
 * { 
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
 body {
@@ -19,25 +20,33 @@ body {
 .wrapper {
     display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content:flex-start;
     flex-direction: column;
     margin: 60px 20px 30px 20px; 
-    max-width: 600px;
+    width: 600px;
     height: 950px;
-    background-color: rgba(12, 20, 12, 0.6);
+    background-color: rgba(19, 32, 20, 0.7);
     padding: 30px 50px 20px 50px;
     border: 3px solid rgb(51, 68, 52);
     box-shadow:  0px 0px 38px black,  0px 0px 28px black;
     border-radius: 10px;
 }
 
-
+.headerWrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+     flex-direction: column;
+}
 .currentAccountContainer {
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .savingsContainer {
+    width: 100%;
     display: none;
     flex-direction: column;
 }
@@ -56,7 +65,6 @@ body {
 }
 
 .menu {
-    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -89,7 +97,7 @@ body {
     justify-content:center;
     width: 50%;
     padding: 10px 0 10px 0;
-    background-color:  rgb(66, 0, 0);
+    background-color:  rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     cursor: pointer;
     transition: 0.2s ease-in-out;
@@ -114,36 +122,19 @@ body {
     flex-direction: row;
 }
 
-.plusmin {
+.plusmin, .depositWithdraw {
     width: 15%;
     height: 44px;
 }
 
-.depositWithdraw {
-    width: 15%;
-    height: 44px;
-}
-
-.plusmin select {
+.plusmin select, .depositWithdraw select {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.4rem;
     width: 100%;
     height: 100%;
 }
 
-.depositWithdraw select {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.4rem;
-    width: 100%;
-    height: 100%;
-}
-
-.select_type {
-     outline: none;
-     border: 1px solid #929292;
-}
-
-.select_type_savings {
+.select_type, .select_type_savings {
      outline: none;
      border: 1px solid #929292;
 }
@@ -188,7 +179,7 @@ body {
     border: 0;
 }
 
-.btn1 {
+.btn1, .savingsSubmitBtn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -197,25 +188,14 @@ body {
     border-style: none;
     color: rgb(255, 255, 255);
     cursor: pointer;
-}
-
-.savingsSubmitBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width:15%;
-    background-color: rgb(15, 77, 23);
-    border-style: none;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-}
+} 
 
 .btn2 {
     display: none;
     align-items: center;
     justify-content: center;
     width:100%;
-    padding: 15px 0 15px 0;
+    height: 50px;
     background-color: rgb(27, 94, 36);
     border-style: none;
     color: rgb(255, 255, 255);
@@ -223,37 +203,24 @@ body {
     cursor: pointer;
 }
 
-.budget {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    margin: 0 auto;
-    width: 100%;
-    height: 51px;
-    margin-bottom: 20px;
-    background: rgb(47, 122, 44); 
-    padding: 15px 23px 15px 20px;
-    color: white;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    transition: .8s ease-in-out;
-}
 
-.budgetTitle, .budgetTotal, .savingsTotal, .savingsTitle {
+.savingsTotal {
      display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: auto;
+    height: auto;
 }
 
-.savingsBox {
+
+.budget, .savingsBox {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
     margin: 0 auto;
     width: 100%;
-    height: 51px;
+    height: 60px;
     margin-bottom: 20px;
     background: rgb(47, 122, 44); 
     padding: 15px 23px 15px 20px;
@@ -273,11 +240,12 @@ body {
 
 /***************************** BODY *****************************/
 
+
 .flatBroke {
     position: absolute;
     width: 100%;
-    height: 90%;
-    display: flex;
+    height: 100%;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -289,34 +257,19 @@ body {
     padding-left: 18px;
 }
 
-.listItemsWrapper {
-    width: 100%;
-    height: 570px;
-    margin: 72px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.boxes {
-    width: 100%;
-    display: flex;
-    flex-direction:row;
-    justify-content: center;
-}
 .container {
     width: 100%;
-    height: 585px;
+    height: 570px;
     margin: 0 auto;
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     justify-content: center;
 }
 
 .container2 {
     position: relative;
     width: 100%;
-    height: 600px;
+    height: auto;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -330,6 +283,13 @@ body {
     display: flex;
     flex-direction: column;
     overflow: scroll;
+}
+
+.plusSavingsContainer {
+    width: 100%;
+    height:auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .plusBox, .minusBox  {
@@ -350,20 +310,12 @@ body {
 
 .plusSavingsBox {
     width: 100%;
-    height:580px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    height: 500px;
     overflow: scroll;
 }
-
-/* .scrollSigns {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-} */
 
 .scrollSignLeft {
     width: 50%;
@@ -371,7 +323,6 @@ body {
     display: none;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
 }
 
 .scrollSignRight {
@@ -380,18 +331,15 @@ body {
     display: none;
     align-items: center;
     justify-content:center;
-    cursor: pointer;
 }
 
 .scrollSign {
     width: 100%;
      height: 50px;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content:center;
-    cursor: pointer;
 }
-
 
 .depTotal {
  color: rgb(0, 173, 0);
@@ -414,23 +362,31 @@ body {
 
 .pluscontainer::-webkit-scrollbar {
     width: 0px;
-    background: transparent; 
+    background: transparent; /* make scrollbar transparent */
 }
 
 .minuscontainer::-webkit-scrollbar {
     width: 0px;
-    background: transparent; 
+    background: transparent; /* make scrollbar transparent */
 }
 
 .plusSavingsBox::-webkit-scrollbar {
     width: 0px;
-    background: transparent; 
+    background: transparent; /* make scrollbar transparent */
 }
+
 
 .plusItem, .minItem {
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.savingsItem {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 60px;
 }
 
 .pluslist, .minlist {
@@ -458,7 +414,6 @@ body {
     font-size: .7rem;
     color: rgb(177, 0, 0);
 }
-
 .descontainer {
     display: flex;
     align-items: center;
@@ -470,7 +425,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 40%;
+   width: 40%;
 }
 
 .timestamp {
@@ -481,7 +436,7 @@ body {
     font-size: .7rem;
     color: gray;
     border-bottom: 2px dotted rgb(173, 173, 173);
-    padding-bottom: 4px;
+    padding-bottom: 5px;
 }
 
 .remove {
@@ -549,7 +504,7 @@ body {
     border-radius: 10px;
 }
 
-.hundred{
+.availableBudget{
     margin: 15px 0 15px 0;
     display: flex;
     align-items: center;
@@ -561,41 +516,22 @@ body {
 /************************** MEDIA QUERIES ****************************/
 @media only screen and (max-width: 600px) {
     .wrapper {
-        padding: 20px 10px 30px 10px; 
         width: 100%;
         margin: 0;
         border: 0;
-    }
-
-    .fields {
-       width: 100%;
-    }
-
-    .description {
-        width: 55%;
-    }
-
-    .currentAccountContainer, .savingsContainer {
-        width: 100%;
-    }
-    .btn1 {
-       width: 15%;
-       outline: none;
-       
-    }
-    .plusmin {
-        width: 15%;
-        margin-left: 1px;
+        padding: 20px 20px 20px 20px; 
+        box-shadow: none;
+        min-height: 100vh;
     }
 }
 
 
 @media only screen and (max-width: 535px) {
+
 .container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 570px;
     overflow: scroll;
     align-items: center;
     justify-content: flex-start;
@@ -606,20 +542,9 @@ body {
     background: transparent; /* make scrollbar transparent */
 }
 
-.listItemsWrapper {
-    width: 100%;
-    margin: 0px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.flatBroke {
-    margin-top: 80px;
-}
-
 .pluscontainer, .minuscontainer {
       height: auto;
+      
   }
 
 .plusBox {
@@ -664,6 +589,7 @@ body {
 
 .btn2 {
     display: flex;
+    
 }
 .scrollSigns{
     display: none;
@@ -676,7 +602,7 @@ body {
       font-size: 1.2rem;
   }
   .wrapper {
-     padding: 20px 10px 30px 10px; 
+    
         width: 100%;
         margin: 0;
         border: 0;

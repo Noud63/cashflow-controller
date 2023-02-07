@@ -20,10 +20,10 @@ export const changeBorderColor = () => {
 export const goTo = (e) => {
     const element = e.target
     if (element.classList.contains('savings')) {
-        document.querySelector('.listItemsWrapper').style.display = 'none'
+        document.querySelector('.currentAccountContainer').style.display = 'none'
         document.querySelector('.savingsContainer').style.display = 'flex'
     } else if (element.classList.contains('payments')) {
-        document.querySelector('.listItemsWrapper').style.display = 'flex'
+        document.querySelector('.currentAccountContainer').style.display = 'flex'
         document.querySelector('.savingsContainer').style.display = 'none'
     }
 
@@ -57,6 +57,14 @@ export const displayCurrentAccountItems = (obj, type) => {
                 `
     }
     element.insertAdjacentHTML('beforeend', html)
+}
+
+
+export const displayAllItems = (allItems) => {
+    clearCurrentAccountLists()
+    allItems.forEach(item => {
+        displayCurrentAccountItems(item, item.type)
+    })
 }
 
 
