@@ -8,6 +8,7 @@ export const showFlatbrokeImage = (savings) => {
           
 }
 
+
 export const clearSavingsInputFields = () => {
     document.querySelector('.add_savings_description').value = ""
     document.querySelector('.add_savings_value').value = ""
@@ -44,9 +45,9 @@ export const displaySavings = (savings) => {
     element.innerHTML = `<div class="saldo">+ &euro; ${savings.toFixed(2)}</div>`
 }
 
-//Down arrow appears at bottom of list items if list length exceeds 6 
+
+//Down arrow appears at bottom of list items if list length exceeds 7 
 const arrowDown = document.querySelector('.scrollSign')
 export const displayDownArrowSavings = (allSavings) => {
-    console.log(allSavings)
     allSavings >= 8 ? arrowDown.style.display = "flex" : arrowDown.style.display = "none"
 }
