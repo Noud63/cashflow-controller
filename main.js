@@ -1,4 +1,4 @@
-
+import './styles2.scss'
 import { SavingsAccount, calculateSavings } from './models/savingsModel.js'
 import { getInputValues } from './getInputValues/currentAccountInputValues.js'
 import { getSavingsInputValues } from './getInputValues/savingsInputValues.js'
@@ -12,7 +12,8 @@ import {
     displayDownArrow,
     changeBorderColor,
     goTo,
-    displayAllItems
+    displayAllItems,
+    displayLiquidAssets
 } from './views/currentAccountView.js'
 import {
     displaySavingsAccountItems,
@@ -173,6 +174,13 @@ const savingsController = () => {
 }
 
 
+//Liquid Assets
+
+const liquidAssetsController = () => {
+    displayLiquidAssets(state.budget, state.savings)
+}
+
+
 // ------------------------- EventListeners and init function ------------------------ //
 
 //EventListener submit button current account
@@ -180,6 +188,7 @@ const btn = document.querySelector('.btn1')
 btn.addEventListener('click', () => {
     currentlistItemsController()
     budgetController()
+    liquidAssetsController()
     clearInputFields()
     percentage()
     localStorage.setItem("STATE", JSON.stringify(state))
@@ -224,6 +233,7 @@ const init = () => {
         })
         budgetController()
         savingsController()
+        liquidAssetsController()
         displayDownArrow(state.currentAccount.plus, state.currentAccount.minus)
         showFlatbrokeImage(state.savings)
     }

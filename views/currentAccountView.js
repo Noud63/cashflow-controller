@@ -122,3 +122,10 @@ export const displayDownArrow = (plus, minus) => {
     minus.length >= 6 ? arrowDownRight.style.display = "flex" :
         arrowDownRight.style.display = "none"
 }
+
+
+export const displayLiquidAssets = (budget, savings) => {
+    document.querySelector('.liquidAssetCurrent').innerHTML = `<span>&euro; ${budget}</span>`
+    document.querySelector('.liquidAssetSavings').innerHTML = `<span>&euro; ${savings}</span>`
+    document.querySelector('.liquidAssetsTotal').innerHTML = `<span>&euro; ${savings + budget}</span>`
+}

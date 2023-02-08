@@ -5,137 +5,150 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles2.css">
   <link rel="shortcut icon" type="image/x-icon" href="images/euro.ico" />
   <meta name="author" content="noud van dun">
   <title>Cashflow Controller</title>
 </head>
 
 <body>
+  <div class="bigBox">
+    <div class="wrapper">
 
-  <div class="wrapper">
-
-    <div class="account">- BUDGET CONTROLLER -</div>
-    <div class="date"></div>
-    <div class="menu">
-      <div class="payments accountBtn">Current Account</div>
-      <div class="euro"><img src="images/euro.png" alt="" style="width: 38px;"></div>
-      <div class="savings accountBtn">Savings</div>
-    </div>
-
-    <!----------------------------------------- current Account ------------------------------------>
-    <div class="currentAccountContainer">
-      <div class="headerWrapper">
-        <div class="fields">
-          <div class="plusmin">
-            <select class="select_type">
-              <option value="plus" selected>+</option>
-              <option value="minus">-</option>
-            </select>
-          </div>
-
-          <div class="description">
-            <input type="text" class="add_description" placeholder="Description">
-          </div>
-
-          <div class="value">
-            <input type="number" class="add_value" placeholder="Value">
-          </div>
-
-          <button type="button" class="btn1 btn">Submit</button>
-
-        </div>
-        <button type="button" class="btn2 btn">Submit</button>
-
-        <div class="budget">
-          <div class="budgetTitle">Available Budget</div>
-          <div class="budgetTotal">&euro; 0.00</div>
-          <div class="smile_sad"></div>
-        </div>
+      <div class="account">- BUDGET CONTROLLER -</div>
+      <div class="date"></div>
+      <div class="menu">
+        <div class="payments accountBtn">Current Account</div>
+        <div class="euro"><img src="images/euro.png" alt="" style="width: 38px;"></div>
+        <div class="savings accountBtn">Savings</div>
       </div>
 
+      <!----------------------------------------- current Account ------------------------------------>
+      <div class="currentAccountContainer">
+        <div class="headerWrapper">
+          <div class="fields">
+            <div class="plusmin">
+              <select class="select_type">
+                <option value="plus" selected>+</option>
+                <option value="minus">-</option>
+              </select>
+            </div>
 
+            <div class="description">
+              <input type="text" class="add_description" placeholder="Description">
+            </div>
 
-      <div class="container">
-        <div class="plusBox box">
-          <div class="plus"><span class="deposit">Deposits</span><span class="depTotal">&euro; 0.00</span>
+            <div class="value">
+              <input type="number" class="add_value" placeholder="Value">
+            </div>
+
+            <button type="button" class="btn1 btn">Submit</button>
+
           </div>
-          <div class="pluscontainer delete"></div>
-          <div class="scrollSignLeft"><img src="images/scroll.png" style="width: 60px;"></div>
+
+          <button type="button" class="btn2 btn">Submit</button>
+
+          <div class="budget">
+            <div class="budgetTitle">Available Budget</div>
+            <div class="budgetTotal">&euro; 0.00</div>
+            <div class="smile_sad"></div>
+          </div>
         </div>
 
-        <div class="minusBox box">
-          <div class="minus"><span class="Withdrawals">Withdrawals</span><span class="withTotal">&euro;
-              0.00</span></div>
-          <div class="minuscontainer delete"></div>
-          <div class="scrollSignRight"><img src="images/scroll.png" style="width: 60px;"></div>
+
+
+        <div class="container">
+          <div class="plusBox box">
+            <div class="plus"><span class="deposit">Deposits</span><span class="depTotal">&euro; 0.00</span>
+            </div>
+            <div class="pluscontainer delete"></div>
+            <div class="scrollSignLeft"><img src="images/scroll.png" style="width: 60px;"></div>
+          </div>
+
+          <div class="minusBox box">
+            <div class="minus"><span class="Withdrawals">Withdrawals</span><span class="withTotal">&euro;
+                0.00</span></div>
+            <div class="minuscontainer delete"></div>
+            <div class="scrollSignRight"><img src="images/scroll.png" style="width: 60px;"></div>
+          </div>
+
         </div>
 
-      </div>
 
-     
 
-      <div class="availableBudget"><span>Available budget&nbsp;</span>
-        <span class="percentage">0%</span>
-        <span>&nbsp;of total deposits</span>
-      </div>
-      <div id="progressbar">
-        <div id="progress"></div>
-      </div>
-      <!-- <div class="deleteBtns">
+        <div class="availableBudget"><span>Available budget&nbsp;</span>
+          <span class="percentage">0%</span>
+          <span>&nbsp;of total deposits</span>
+        </div>
+        <div id="progressbar">
+          <div id="progress"></div>
+        </div>
+        <!-- <div class="deleteBtns">
         <button class="deleteBtn">Clear Lists</button><button class="resetBtn">Reset</button>
       </div> -->
-    </div>
+      </div>
 
-    <!----------------------------------------------- savings ----------------------------------------------->
+      <!----------------------------------------------- savings ----------------------------------------------->
 
-    <div class="savingsContainer">
+      <div class="savingsContainer">
 
-      <div class="headerWrapper">
-        <div class="fields">
-          <div class="depositWithdraw">
-            <select class="select_type_savings">
-              <option value="deposit" selected>+</option>
-              <option value="withdraw">-</option>
-            </select>
+        <div class="headerWrapper">
+          <div class="fields">
+            <div class="depositWithdraw">
+              <select class="select_type_savings">
+                <option value="deposit" selected>+</option>
+                <option value="withdraw">-</option>
+              </select>
+            </div>
+
+            <div class="description">
+              <input type="text" class="add_savings_description" placeholder="Description">
+            </div>
+
+            <div class="value">
+              <input type="number" class="add_savings_value" placeholder="Value">
+            </div>
+
+            <button type="button" class="savingsSubmitBtn">Submit</button>
           </div>
 
-          <div class="description">
-            <input type="text" class="add_savings_description" placeholder="Description">
+          <button type="button" class="btn2 btn">Submit</button>
+
+          <div class="savingsBox">
+            <div class="savingsTitle">Savings</div>
+            <div class="savingsTotal"></div>
           </div>
 
-          <div class="value">
-            <input type="number" class="add_savings_value" placeholder="Value">
-          </div>
-
-          <button type="button" class="savingsSubmitBtn">Submit</button>
         </div>
 
-        <button type="button" class="btn2 btn">Submit</button>
 
-        <div class="savingsBox">
-          <div class="savingsTitle">Savings</div>
-          <div class="savingsTotal"></div>
+        <div class="container2">
+          <div class="plusSavingsBox box">
+            <div class="plusSavingsContainer delete"></div>
+          </div>
+
+          <div class="flatBroke"><img src="images/flatbroke.png" alt="" class="brokeImg">
+            <span class="nosavings">No Savings!</span>
+          </div>
+          <div class="scrollSign"><img src="images/scroll.png" style="width: 60px;"></div>
+
         </div>
 
       </div>
 
+    </div>
 
-      <div class="container2">
-        <div class="plusSavingsBox box">
-          <div class="plusSavingsContainer delete"></div>
-        </div>
-
-        <div class="flatBroke"><img src="images/flatbroke.png" alt="" class="brokeImg">
-          <span class="nosavings">No Savings!</span>
-        </div>
-        <div class="scrollSign"><img src="images/scroll.png" style="width: 60px;"></div>
-
+    <div class="liquidAssetsWrapper">
+      <div class="liquidAssets">- Liquid Assets -</div>
+      <div class="currentAndSavings">
+        <div class="liquidAssets_current"><span>Current Account:</span><span class="liquidAssetCurrent">&euro; 0.00</span></div>
+        <div class="liquidAssets_savings"><span>Savings:</span><span class="liquidAssetSavings">&euro; 0.00</span></div>
+        <div class="liquidAssets_total"><span>Total:</span><span class="liquidAssetsTotal">&euro; 0.00</span></div>
       </div>
 
     </div>
 
   </div>
+
   <script type="module" src="main.js"></script>
 
 </body>
