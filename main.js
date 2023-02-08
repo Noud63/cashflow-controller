@@ -70,7 +70,7 @@ let state =
 const currentlistItemsController = () => {
 
     const obj = getInputValues()
-    
+
     if (obj.type === "" || obj.description === "" || obj.value <= 0 || isNaN(obj.value)) {
         alert('Please fill in all required fields!')
         return
@@ -177,6 +177,8 @@ const savingsController = () => {
 //Liquid Assets
 
 const liquidAssetsController = () => {
+
+    //display and calculate total of liquid assets
     displayLiquidAssets(state.budget, state.savings)
 }
 
