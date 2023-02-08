@@ -175,9 +175,7 @@ const savingsController = () => {
 
 
 //Liquid Assets
-
 const liquidAssetsController = () => {
-
     //display and calculate total of liquid assets
     displayLiquidAssets(state.budget, state.savings)
 }

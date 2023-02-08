@@ -29,9 +29,10 @@ body {
 }
 
 .liquidAssetsWrapper {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-direction: column;
   width: 320px;
   height: 500px;
@@ -53,8 +54,10 @@ body {
 }
 
 .currentAndSavings {
+  position: absolute;
+  top: 100px;
   width: 100%;
-  margin-top: 35px;
+  padding: 0 20px 0 20px;
 }
 
 .liquidAssets_current, .liquidAssets_savings, .liquidAssets_total {
@@ -70,6 +73,11 @@ body {
 
 .liquidAssets_savings {
   border-bottom: 1px solid rgb(91, 167, 56);
+}
+
+.investmentAdd {
+  width: 100%;
+  height: auto;
 }
 
 .wrapper {
@@ -592,7 +600,7 @@ body {
   }
   .liquidAssetsWrapper {
     width: 100%;
-    height: 280px;
+    height: 380px;
     margin: 0;
     border: 0;
     padding: 20px 20px 20px 20px;
@@ -602,7 +610,13 @@ body {
   }
   .liquidAssets {
     background-color: green;
-    height: 50px;
+    padding: 30px;
+  }
+  .liquidAssets_current, .liquidAssets_savings, .liquidAssets_total {
+    font-size: 1.2rem;
+  }
+  .investmentAdd {
+    margin-top: 20px;
   }
   .wrapper {
     width: 100%;
