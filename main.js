@@ -201,6 +201,7 @@ btn2.addEventListener('click', () => {
     savingsListItemsController()
     clearSavingsInputFields()
     savingsController()
+    liquidAssetsController()
     localStorage.setItem("STATE", JSON.stringify(state))
 })
 

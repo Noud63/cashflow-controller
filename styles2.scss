@@ -23,7 +23,7 @@ body {
     justify-content:center;
     flex-direction: row;
     width:100%;
-    height: auto;
+    // min-height: 100vh;
     background-color: rgba(19, 32, 20, 0.4);
     margin-bottom: 50px 20px 30px 20px; 
 }
@@ -448,7 +448,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 60px;
+    height: 80px;
 }
 
 .pluslist, .minlist {
@@ -606,8 +606,7 @@ body {
 
     .bigBox {
         flex-direction: column;
-         min-height: 100vh;
-          margin-bottom: 40px;
+        margin-bottom: 40px;
     }
 
     .liquidAssetsWrapper {
@@ -631,7 +630,7 @@ body {
     }
 
     .investmentAdd {
-        margin-top: 20px;
+        margin-top: 180px;
     }
 
     .wrapper {
