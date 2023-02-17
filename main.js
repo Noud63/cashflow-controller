@@ -159,7 +159,7 @@ const savingsListItemsController = () => {
     state.allSavingsAccountItems.forEach(item => {
         displaySavingsAccountItems(item, item.type)
     })
-    console.log(state.allSavingsAccountItems.length)
+
     displayDownArrowSavings(state.allSavingsAccountItems.length)
 }
 
@@ -194,7 +194,7 @@ btn.addEventListener('click', () => {
     localStorage.setItem("STATE", JSON.stringify(state))
 })
 
-//EventListener submit button current account
+//EventListener submit button savings account
 const btn2 = document.querySelector('.savingsSubmitBtn')
 btn2.addEventListener('click', () => {
     console.log(state)

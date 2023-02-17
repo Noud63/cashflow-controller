@@ -83,8 +83,9 @@ export const displayBudget = (budget) => {
     const budgetRedGreen = document.querySelector('.budget')
     const emoji = document.querySelector('.smile_sad')
     sign === '-' ? budgetRedGreen.classList.add('red') : budgetRedGreen.classList.remove('red');
-    sign === '-' ? emoji.innerHTML = '<img src="images/sad1.png" alt="smile" style="width: 20px;" class="smile"/>' :
-        emoji.innerHTML = '<img src="images/smile2.png" alt="smile" style="width: 20px;" class="smile"/>'
+    sign === '-' ? emoji.innerHTML = '<img src="sad1.png" alt="smile" style="width: 20px;" class="smile"/>' :
+        emoji.innerHTML = '<img src="smile2.png" alt="smile" style="width: 20px;" class="smile"/>'
+
 }
 
 
